@@ -1,0 +1,16 @@
+{
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "name": "PromptGPT",
+    "description": "Prompt Engineering at your fingertips",
+    "action": {
+        "default_popup": "js/index.html",
+        "default_title": "React Chrome Extension"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["js/content.js"]
+        }
+    ]
+}
