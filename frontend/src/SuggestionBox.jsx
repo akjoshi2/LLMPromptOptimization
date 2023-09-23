@@ -1,9 +1,11 @@
 import React from 'react';
 
 function SuggestionBox() {
+	const text = "What is ChatGPT?";
+
 	return (
 		<div>
-			My name is Aiden Cohen.
+			{text}
 		</div>
 	)
 }
