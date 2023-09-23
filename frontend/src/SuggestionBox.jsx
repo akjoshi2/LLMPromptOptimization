@@ -11,6 +11,9 @@ function SuggestionBox(props) {
 			<button id="submitButton" onClick={props.onClick}>
 				SUBMIT
 			</button>
+			<button id="declineButton" onClick={props.onDecline}>
+				DECLINE
+			</button>
 		</>
 
 

@@ -11,11 +11,18 @@ promptContainer.insertBefore(reactElement, promptElement);
 const container = document.getElementById("content-target")
 const root = createRoot(container);
 var sendRequest = false;
+var acceptChanges = true;
 function onClick() {
 	sendRequest = true;
+	acceptChanges = true;
 }
 
-root.render(<SuggestionBox onClick={onClick} />)
+function onDecline() {
+	sendRequest = true;
+	acceptChanges = false;
+}
+
+root.render(<SuggestionBox onClick={onClick} onDecline={onDecline}/>)
 const nativeFetch = window.fetch;
 const waitUntil = (condition, res,checkInterval=100) => {
     return new Promise(resolve => {
@@ -25,9 +32,12 @@ const waitUntil = (condition, res,checkInterval=100) => {
             resolve();
         }, checkInterval)
     }).then(() => {
-		const obj = JSON.parse(res[1].body);
-		obj.messages[0].content.parts[0] = document.getElementById("content-target").innerText;
-		res[1].body = JSON.stringify(obj);
+		if (acceptChanges)
+		{
+			const obj = JSON.parse(res[1].body);
+			obj.messages[0].content.parts[0] = document.getElementById("content-target").innerText;
+			res[1].body = JSON.stringify(obj);
+		}
         sendRequest = false;
         return nativeFetch.apply(window,res)
 
