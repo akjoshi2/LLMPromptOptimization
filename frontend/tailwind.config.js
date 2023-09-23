@@ -6,4 +6,7 @@ module.exports = {
   },
   plugins: [],
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/richards_design_branch

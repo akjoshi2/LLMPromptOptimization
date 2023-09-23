@@ -4,7 +4,7 @@ import './SuggestionBox.jsx'
 function App() {
   return (
     <div className="App">
-      Hello Borld
+      Hello World1
     </div>
   );
 }
