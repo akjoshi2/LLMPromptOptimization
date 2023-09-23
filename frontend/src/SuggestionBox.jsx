@@ -1,6 +1,7 @@
 import { useEffect, React } from "react";
 
 function SuggestionBox() {
+<<<<<<< HEAD
 	useEffect(() => {
         // call api or anything
 	
@@ -11,9 +12,13 @@ function SuggestionBox() {
 });
 
 	
+=======
+	const text = "What is ChatGPT?";
+
+>>>>>>> 25020c0838b162261c2cc713055312e0b8260f7b
 	return (
 		<div>
-			My name is Aiden Cohen.
+			{text}
 		</div>
 
 	);
