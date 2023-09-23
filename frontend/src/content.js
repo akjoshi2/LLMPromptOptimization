@@ -10,8 +10,12 @@ promptContainer.insertBefore(reactElement, promptElement);
 
 const container = document.getElementById("content-target")
 const root = createRoot(container);
-root.render(<SuggestionBox />)
-var cool = false;
+var sendRequest = false;
+function onClick() {
+	sendRequest = true;
+}
+
+root.render(<SuggestionBox onClick={onClick} />)
 const nativeFetch = window.fetch;
 const waitUntil = (condition, res,checkInterval=100) => {
     return new Promise(resolve => {
@@ -21,7 +25,10 @@ const waitUntil = (condition, res,checkInterval=100) => {
             resolve();
         }, checkInterval)
     }).then(() => {
-        cool = false;
+		const obj = JSON.parse(res[1].body);
+		obj.messages[0].content.parts[0] = document.getElementById("content-target").innerText;
+		res[1].body = JSON.stringify(obj);
+        sendRequest = false;
         return nativeFetch.apply(window,res)
 
     })
@@ -31,11 +38,12 @@ window.fetch = function(...args) {
 
   if(args[0] === "https://chat.openai.com/backend-api/conversation"){
     
-    return waitUntil(() => cool===true, args)
+    return waitUntil(() => sendRequest === true, args)
 
 
   }
   return nativeFetch.apply(window,args);
 }
+
 
 
