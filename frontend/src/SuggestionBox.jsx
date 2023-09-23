@@ -14,6 +14,7 @@ function SuggestionBox(props) {
 					<button class="static btn relative btn-neutral group w-full rounded-xl text-left text-gray-700 shadow-[0px_1px_6px_0px_rgba(0,0,0,0.02)] dark:text-gray-300" as="button" onClick={props.onClick}>
 						<div class="flex flex-grow flex-col gap-3 max-w-full">
 							<div class="flex items-center">
+							/* STATIC WIDTH BUTTON* /
 								<div class="flex flex-1 gap-4 text-base mx-auto md:gap-6 md:max-w-2xl lg:max-w-[38rem] xl:max-w-3xl }">
 									<div class="flex flex-wrap opacity-50">{text}</div>
 								</div>
