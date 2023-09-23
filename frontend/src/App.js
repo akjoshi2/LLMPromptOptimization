@@ -1,4 +1,6 @@
 import './index.css'
+import './SuggestionBox.jsx'
+
 function App() {
   return (
     <div className="App">
