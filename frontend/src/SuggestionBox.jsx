@@ -12,10 +12,10 @@ function SuggestionBox(props) {
 				</summary>
 				<div class="static ...">
 					<button class="static btn relative btn-neutral group w-full rounded-xl text-left text-gray-700 shadow-[0px_1px_6px_0px_rgba(0,0,0,0.02)] dark:text-gray-300" as="button" onClick={props.onClick}>
-						<div class="flex flex-col w-full gap-2 items-start">
+						<div class="flex flex-grow flex-col gap-3 max-w-full">
 							<div class="flex items-center">
-								<div class="flex flex-col overflow-hidden">
-									<div class="flex flex-wrap truncate opacity-50">{text}</div>
+								<div class="flex flex-1 gap-4 text-base mx-auto md:gap-6 md:max-w-2xl lg:max-w-[38rem] xl:max-w-3xl }">
+									<div class="flex flex-wrap opacity-50">{text}</div>
 								</div>
 								<div class="absolute bottom-0 right-0 flex items-center rounded-xl bg-gradient-to-l from-gray-100 from-[60%] p-3 text-gray-700 opacity-0 group-hover:opacity-100 dark:from-gray-700 dark:text-gray-200">
 									<span class="" data-state="closed">
