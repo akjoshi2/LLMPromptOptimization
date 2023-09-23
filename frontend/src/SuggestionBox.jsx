@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 
-function SuggestionBox() {
+function SuggestionBox(props) {
 	const text = "What is ChatGPT?What is ChatGPT?What is ChatGPT?What is ChatGPT?What is ChatGPT?What is ChatGPT?What is ChatGPT?What is ChatGPTWhat is ChatGPT?What is ChatGPT?What is ChatGPT?What is ChatGPT?";
 
 	return (
@@ -11,11 +11,10 @@ function SuggestionBox() {
 					PromptAI
 				</summary>
 				<div class="static ...">
-					<button class="static btn relative btn-neutral group w-full rounded-xl text-left text-gray-700 shadow-[0px_1px_6px_0px_rgba(0,0,0,0.02)] dark:text-gray-300" as="button">
+					<button class="static btn relative btn-neutral group w-full rounded-xl text-left text-gray-700 shadow-[0px_1px_6px_0px_rgba(0,0,0,0.02)] dark:text-gray-300" as="button" onClick={props.onClick}>
 						<div class="flex flex-col w-full gap-2 items-start">
 							<div class="flex items-center">
 								<div class="flex flex-col overflow-hidden">
-									<div class="truncate font-semibold">Optimized Prompt:</div>
 									<div class="flex flex-wrap truncate opacity-50">{text}</div>
 								</div>
 								<div class="absolute bottom-0 right-0 flex items-center rounded-xl bg-gradient-to-l from-gray-100 from-[60%] p-3 text-gray-700 opacity-0 group-hover:opacity-100 dark:from-gray-700 dark:text-gray-200">
