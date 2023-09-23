@@ -8,7 +8,7 @@ function SuggestionBox() {
     			<summary class="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
       				Improve your prompt
     			</summary>
-    			<div class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
+    			<div class="opacity-40 font-semibold mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
     				<p> THIS TEXT BOX SHOULD DISPLAY IMPROVEMENTS THAT CAN BE MADE TO THE PROMPTS </p>
     			</div>
   			</details>
