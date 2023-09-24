@@ -42,7 +42,7 @@ def cat_nlp():
     completion = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[
-        {"role": "system", "content": "Your role is to classify the submitted text into one of these categories. Select the category that matches the submitted text. Categories: " + " ".join(categories)},
+        {"role": "system", "content": "Your role is to classify the submitted text into one of these categories. Select the category that matches the submitted text. Categories: " + ", ".join(categories)},
         {"role": "user", "content": "Text: " + request.form["sentence"]}
     ]
     )
