@@ -88,7 +88,7 @@ def s():
 def g():
     db = sqlite3.connect("testdb")
     c = db.cursor()
-    return {"value" : c.execute("""SELECT value,cat FROM conversations WHERE cat=?""", [(request.args["type"])]).fetchone()}
+    return {"value" : c.execute("""SELECT value,cat FROM conversation WHERE cat=?""", [(request.args["type"])]).fetchone()}
     
 def create_schema(db):
     c = db.cursor()
