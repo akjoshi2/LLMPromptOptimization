@@ -6,12 +6,12 @@ function SuggestionBox(props) {
 
 	return (
 		<div class="static ...">
-			<details class="closed:bg-white dark:closed:bg-slate-900 closed:ring-1 closed:ring-black/5 dark:closed:ring-white/10 closed:shadow-lg p-6 rounded-lg" closed>
+			<details class="closed:bg-white dark:closed:bg-slate-900 closed:ring-1 closed:ring-black/5 dark:closed:ring-white/10 hover:shadow-none p-6 rounded-lg disabled:transform-none disabled:transition-none disabled:bg-gray disabled:cursor-not-allowed" closed>
 				<summary class="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
 					PromptAI
 				</summary>
 				<div class="static ...">
-					<button class="static btn relative btn-neutral group w-full rounded-xl text-left text-gray-700 shadow-[0px_1px_6px_0px_rgba(0,0,0,0.02)] dark:text-gray-300" as="button" onClick={props.onClick}>
+					<card class="static btn relative btn-neutral group w-full rounded-xl text-left text-gray-700  dark:text-gray-300 hover:shadow-none" >
 						<div class="flex flex-grow flex-col gap-3 max-w-full">
 							<div class="flex items-center">
 
@@ -21,7 +21,7 @@ function SuggestionBox(props) {
 								</div>
 							</div>
 						</div>
-					</button>
+					</card>
 					<div class="static ...">
 						<button id="declineButton" class=" btn  btn-neutral group  rounded-xl text-left text-gray-700 shadow-[0px_1px_6px_0px_rgba(0,0,0,0.02)] dark:text-gray-300 mr-2" as="button" onClick={props.onDecline}>
 							Decline
