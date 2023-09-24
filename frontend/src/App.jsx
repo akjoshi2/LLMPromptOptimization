@@ -29,7 +29,7 @@ function App() {
 
   var b = function(){
 
-    let data = FormData();
+    let data = new FormData();
     data.append("type" , c)
     data.append("value", text )
     fetch('https://uiowa.onrender.com/set', {"method" : "POST", body: data })
