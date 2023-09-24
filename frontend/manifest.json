@@ -1,12 +1,12 @@
 {
     "version": "1.0.0",
     "manifest_version": 3,
-    "name": "PromptGPT",
+    "name": "PromptAI",
     "description": "Prompt Engineering at your fingertips",
     "permissions" : ["scripting"],
     "action": {
         "default_popup": "js/index.html",
-        "default_title": "React Chrome Extension"
+        "default_title": "PromptAI"
     },
     "content_scripts": [
         {
@@ -24,5 +24,13 @@
     ],
     "background": {
         "service_worker": "js/background.js"
+    },
+    "icons": {
+        "16": "16.png",
+        "19": "19.png",
+        "32": "32.png",
+        "38": "38.png",
+        "48": "48.png",
+        "128": "128.png"
     }
 }

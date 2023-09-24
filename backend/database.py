@@ -2,9 +2,9 @@ import sqlite3
 
 db = sqlite3.connect("testdb")
 cursor = db.cursor()
-cats = """CREATE TABLE IF NOT EXISTS categories (id INTEGER PRIMARY KEY, name TEXT NOT NULL, user TEXT NOT NULL)"""
+cats = """ALTER TABLE conversation ADD name TEXT"""
 cursor.execute(cats)
 db.commit()
-cursor.execute("""INSERT INTO categories (name, user) VALUES ('other', 'default')""")
+cursor.execute("""UPDATE conversation SET name='Aiden'""")
 db.commit()
 db.close()
