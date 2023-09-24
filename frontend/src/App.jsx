@@ -18,14 +18,13 @@ function App() {
   });
 
   var oC = function(res){
-    if(res.target.value){
+    if(res.target.value){}
     fetch('https://uiowa.onrender.com/get?type=' + encodeURIComponent(res.target.value)).then(response => {
 			return response.json()
 		}).then(response => {
       console.log(response.value)
       setText(response.value[0]);
 		})
-  }
 
   }
 
@@ -43,38 +42,44 @@ function App() {
 
  
   return (
-<div class="w-full max-w-xs">
-  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+<div className="w-full max-w-xs">
+  <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div className="mb-4">
+      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="category">
         Category Title
       </label>
-      <input list="s" id="converse" onChange={oC}/>
-      <datalist id="s">
-        {
-         c.map(name => {
-            return (<option value={name}/>)
-
-          })
-        }
-</datalist>   
-
+      <select
+        id="category"
+        className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+        onChange={oC}
+      >
+        <option value="">Select a category</option>
+        {c.map(name => {
+          return (<option value={name}>{name}</option>)
+        })}
+      </select>
  </div>
- <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+ <div className="mb-4">
+      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="prompt">
                 Prompt
       </label>
       <textarea id="val" placeholder={text} onInput={(res)=>{setText(res.target.value);}}/>
+        </div>
+        <div className="flex items-center justify-between">
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button"
+          >
+            Get Prompt
+          </button>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button"
+          >
+            Save Data
+          </button>
+        </div>
+      </form>
+    </div>)}
 
- </div>
-    <div class="flex items-center justify-between">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={b}>
-                  Revise
-      </button>
-    </div>
-  </form>
-</div>
-  );
-}
-
-export default App;
+  export default App;
