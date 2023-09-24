@@ -15,6 +15,7 @@ var acceptChanges = true;
 function onClick() {
 	sendRequest = true;
 	acceptChanges = true;
+  
 }
 
 function onDecline() {
