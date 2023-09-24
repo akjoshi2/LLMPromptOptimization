@@ -38,6 +38,7 @@ const waitUntil = (condition, res,checkInterval=100) => {
 			obj.messages[0].content.parts[0] = document.getElementById("qtype").innerText;
 			res[1].body = JSON.stringify(obj);
 		}
+    document.getElementById("category").innerText = "";
     document.getElementById("qtype").innerText = "";
     document.getElementById("qtype").hidden = true;
     sendRequest = false;
