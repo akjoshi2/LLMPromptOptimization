@@ -52,9 +52,9 @@ def cat_nlp():
     queryType = completion.choices[0].message.content
     print(queryType)
     if (queryType == "Math Problem"):
-        return ("Take a deep breath and solve the problem step by step.\n" + request.form["sentence"])
+        return {"data" : "Take a deep breath and solve the problem step by step.\n" + request.form["sentence"]}
     else:
-        return ("Aiden is God " +  request.form["sentence"])
+        return {"data" : "Aiden is God " +  request.form["sentence"]}
     return {"error" : True}
     #return comple tion.choices[0].message
 @app.route("/")
