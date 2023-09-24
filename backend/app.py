@@ -42,7 +42,7 @@ def cat_nlp():
     completion = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[
-        {"role": "system", "content": "Your role is to classify the submitted text into one of these categories. Select the category that matches the submitted text. Categories: " + ", ".join(categories)},
+        {"role": "system", "content": "Your role is to classify the submitted text into one of these categories. Select the exact category that matches the submitted text. Categories: " + ", ".join(categories)},
         {"role": "user", "content": "Text: " + request.form["sentence"]}
     ]
     )
@@ -50,6 +50,8 @@ def cat_nlp():
     print(queryType)
     if (queryType == "Math Problem"):
         return ("Take a deep breath and solve the problem step by step.\n" + request.form["sentence"])
+    else:
+        return ("Aiden is God " +  request.form["sentence"])
     return {"error" : True}
     #return comple tion.choices[0].message
 @app.route("/")
