@@ -6,10 +6,6 @@
     "permissions" : ["scripting"],
 
     "action": {
-        "default_icon": {
-          "16": "./pai16.png",
-          "128": "./pai128.png"
-        },
         "default_title": "S.P.E.D.",
         "default_popup": "js/index.html"
     },
@@ -24,15 +20,13 @@
         }
     ],
   "icons": {
-      "16": "pai16.png",
-      "32": "headphone-symbol32.png",
-      "128": "pai128.png"
+      "16": "16logo.png",
+      "32": "32logo.png"
   },
   "action": {
       "default_icon": {
-        "16": "pai16.png",
-        "32": "headphone-symbol32.png",
-        "128": "pai128.png"
+        "16": "16logo.png",
+        "32": "32logo.png"
       }
     }
 }
