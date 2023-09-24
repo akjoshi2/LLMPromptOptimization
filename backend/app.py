@@ -80,7 +80,7 @@ def gc():
 def s():
     db = sqlite3.connect("testdb")
     c = db.cursor()
-    c.execute("""REPLACE INTO conversation(name,value,cat) VALUES (?,?,?)""", [('Aiden', requests.form["value"], requests.form["type"])])
+    c.execute("""REPLACE INTO conversation(name,value,cat) VALUES (?,?,?)""", [('Aiden', request.form["value"], request.form["type"])])
     db.commit()
     return {}
 
@@ -88,7 +88,7 @@ def s():
 def g():
     db = sqlite3.connect("testdb")
     c = db.cursor()
-    return {"value" : c.execute("""SELECT value,cat FROM conversations WHERE cat=?""", [(requests.args["type"])]).fetchone()}
+    return {"value" : c.execute("""SELECT value,cat FROM conversations WHERE cat=?""", [(request.args["type"])]).fetchone()}
     
 def create_schema(db):
     c = db.cursor()
