@@ -4,12 +4,12 @@ import './index.css';
 function SuggestionBox(props) {
 	return (
 		<div class="static ...">
-			<details id="popup" class="closed:bg-white dark:closed:bg-slate-900 closed:ring-1 closed:ring-black/5 dark:closed:ring-white/10 closed:shadow-lg p-1 rounded-lg">
+			<details id="popup" class="bg-white border-2 border-solid border-black closed:bg-white dark:closed:bg-slate-900 closed:ring-1 closed:ring-black/5 dark:closed:ring-white/10 closed:shadow-lg p-1 rounded-lg">
 				<summary class="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
 					PromptAI
 				</summary>
 				<div class="static ...">
-					<div class="static relative group w-full rounded-xl text-left text-gray-700 shadow-[0px_1px_6px_0px_rgba(0,0,0,0.02)] dark:text-gray-300">
+					<div class="static relative group w-full rounded-xl text-left text-black dark:text-gray-300">
 						<div class="flex flex-grow flex-col gap-3 max-w-full">
 							<div class="flex items-center">
 
@@ -30,7 +30,7 @@ function SuggestionBox(props) {
 										</button>
 									</div>
 
-									<div id="qtype" class="flex flex-wrap opacity-50"></div>
+									<div id="qtype" class="flex flex-wrap"></div>
 								</div>
 
 							</div>
