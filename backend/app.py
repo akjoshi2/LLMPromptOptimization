@@ -8,6 +8,7 @@ import openai
 import os 
 app = Flask(__name__)
 CORS(app)
+
 # session = boto3.session.Session()
 # client = session.client(
 #     service_name='secretsmanager',
@@ -53,16 +54,28 @@ def cat_nlp():
     print(queryType)
     if ("Math Problem" in queryType):
         return {"data" : "Take a deep breath and solve the problem step by step.\n" + request.form["sentence"], "label" : queryType}
-    else:
-        return {"data" : "Aiden is God " +  request.form["sentence"], "label" : queryType}
-    return {"error" : True}
+    elif("Code Generation" in queryType):
+        pass
     #return comple tion.choices[0].message
 @app.route("/")
 def hello_world():
     db = sqlite3.connect("testdb")
     create_schema(db)
     return "<p>Hello, World!</p>"
+@app.route("/set", methods=["POST"])
+def s():
+    db = sqlite3.connect("testdb")
+    c = db.cursor()
+    c.execute("""UPDATE conversations set value = """ + requests.form["value"])
+    db.commit()
+    return {}
 
+@app.route("/get", methods=["GET"])
+def g():
+    db = sqlite3.connect("testdb")
+    c = db.cursor()
+    return {"value" : c.execute("""SELECT value FROM conversations""").fetchone()}
+    
 def create_schema(db):
     c = db.cursor()
     cats = """CREATE TABLE IF NOT EXISTS categories (id INTEGER PRIMARY KEY, name TEXT NOT NULL)"""
