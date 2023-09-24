@@ -40,6 +40,7 @@ const waitUntil = (condition, res,checkInterval=100) => {
 		}
     document.getElementById("category").innerText = "";
     document.getElementById("qtype").innerText = "";
+    document.getElementById("buttons").classList.add("hidden");
     document.getElementById("qtype").hidden = true;
     sendRequest = false;
     document.getElementById("popup").removeAttribute("open")
