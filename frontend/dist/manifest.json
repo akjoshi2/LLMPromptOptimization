@@ -22,22 +22,15 @@
             "js": ["js/message.js"],
             "matches": ["https://chat.openai.com/*"]
         }
-<<<<<<< HEAD
-    ],
-  "icons": {
-      "16": "16logo.png",
-      "32": "32logo.png"
-  },
-  "action": {
-      "default_icon": {
-        "16": "16logo.png",
-        "32": "32logo.png"
-      }
-=======
 
     ],
     "background": {
         "service_worker": "js/background.js"
->>>>>>> 397ed32e87985ea65735deedcbefe80b8dff1a8c
-    }
+    },
+    "icons": { "16": "16.png",
+        "19": "19.png",
+        "38": "38.png",
+        "48": "48.png",
+        "32": "32.png",
+        "128": "128.png" }
 }
