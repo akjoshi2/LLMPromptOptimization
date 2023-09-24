@@ -12,21 +12,19 @@
 
     "content_scripts": [
         {
-            "world" : "MAIN",
+            "world": "MAIN",
             "matches": ["https://chat.openai.com/*"],
             "js": ["js/content.js"],
             "all_frames": true,
             "run_at": "document_end"
+        },
+        {
+            "js": ["js/message.js"],
+            "matches": ["https://chat.openai.com/*"]
         }
+
     ],
-  "icons": {
-      "16": "16logo.png",
-      "32": "32logo.png"
-  },
-  "action": {
-      "default_icon": {
-        "16": "16logo.png",
-        "32": "32logo.png"
-      }
+    "background": {
+        "service_worker": "js/background.js"
     }
 }

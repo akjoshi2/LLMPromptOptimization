@@ -35,25 +35,30 @@ const waitUntil = (condition, res,checkInterval=100) => {
 		if (acceptChanges)
 		{
 			const obj = JSON.parse(res[1].body);
-			obj.messages[0].content.parts[0] = document.getElementById("content-target").innerText;
+			obj.messages[0].content.parts[0] = document.getElementById("qtype").innerText;
 			res[1].body = JSON.stringify(obj);
 		}
-        sendRequest = false;
-        return nativeFetch.apply(window,res)
+    document.getElementById("qtype").innerText = "";
+    document.getElementById("qtype").hidden = true;
+    sendRequest = false;
+    document.getElementById("popup").removeAttribute("open")
+    return nativeFetch.apply(window,res)
 
     })
 }
 window.fetch = function(...args) {
 
 
-  if(args[0] === "https://chat.openai.com/backend-api/conversation"){
-    
+  if(args[0] === "https://chat.openai.com/backend-api/conversation") {
+    const obj = JSON.parse(args[1].body)
+    document.getElementById("popup").setAttribute("open", true)
+    if (localStorage.getItem("prompt") != null)
+    {
+      localStorage.removeItem("prompt");
+    }
+    localStorage.setItem("prompt", obj.messages[0].content.parts[0])
+    document.getElementById("qtype").classList.add("waiting");
     return waitUntil(() => sendRequest === true, args)
-
-
   }
   return nativeFetch.apply(window,args);
 }
-
-
-
