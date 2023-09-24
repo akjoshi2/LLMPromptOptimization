@@ -4,10 +4,16 @@
     "name": "PromptGPT",
     "description": "Prompt Engineering at your fingertips",
     "permissions" : ["scripting"],
+
     "action": {
-        "default_popup": "js/index.html",
-        "default_title": "React Chrome Extension"
+        "default_icon": {
+          "16": "./pai16.png",
+          "128": "./pai128.png"
+        },
+        "default_title": "S.P.E.D.",
+        "default_popup": "js/index.html"
     },
+
     "content_scripts": [
         {
             "world" : "MAIN",
@@ -17,12 +23,16 @@
             "run_at": "document_end"
         }
     ],
-    "icons":
-        {
-        "16": "logoimages/16x16logo.png",
-        "19": "logoimages/19x19logo.png",
-        "38": "logoimages/38x38logo.png",
-        "48": "logoimages/48x48logo.png",
-        "128": "logoimages/128x128logo.png"
-        }
+  "icons": {
+      "16": "pai16.png",
+      "32": "headphone-symbol32.png",
+      "128": "pai128.png"
+  },
+  "action": {
+      "default_icon": {
+        "16": "pai16.png",
+        "32": "headphone-symbol32.png",
+        "128": "pai128.png"
+      }
+    }
 }
