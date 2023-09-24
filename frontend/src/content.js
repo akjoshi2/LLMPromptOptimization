@@ -15,7 +15,6 @@ var acceptChanges = true;
 function onClick() {
 	sendRequest = true;
 	acceptChanges = true;
-  
 }
 
 function onDecline() {
@@ -34,12 +33,14 @@ const waitUntil = (condition, res,checkInterval=100) => {
         }, checkInterval)
     }).then(() => {
 		if (acceptChanges)
+    /* HIDE THE BOX */
 		{
 			const obj = JSON.parse(res[1].body);
 			obj.messages[0].content.parts[0] = document.getElementById("qtype").innerText;
 			res[1].body = JSON.stringify(obj);
 		}
         sendRequest = false;
+        document.getElementById("popup").removeAttribute("open")
         return nativeFetch.apply(window,res)
     })
 }
@@ -48,6 +49,7 @@ window.fetch = function(...args) {
 
   if(args[0] === "https://chat.openai.com/backend-api/conversation") {
     const obj = JSON.parse(args[1].body)
+    document.getElementById("popup").setAttribute("open", true);
     localStorage.setItem("prompt", obj.messages[0].content.parts[0])
     document.getElementById("qtype").classList.add("waiting");
     return waitUntil(() => sendRequest === true, args)
