@@ -17,18 +17,20 @@ function SuggestionBox(props) {
 
 								<div class="flex flex-1 gap-4 text-base mx-auto md:gap-6 md:max-w-2xl lg:max-w-[38rem] xl:max-w-3xl }">
 									<div class="flex flex-wrap opacity-50">{text}</div>
-									<div class = "static btn relative">
 
-										<button id="declineButton" class="static btn relative btn-neutral group w-full rounded-xl text-left text-gray-700 shadow-[0px_1px_6px_0px_rgba(0,0,0,0.02)] dark:text-gray-300" as="button" onClick={props.onDecline}>
-											DECLINE
-										</button>
-									</div>
 								</div>
-								
-
 							</div>
 						</div>
 					</button>
+					<div class="static ...">
+						<button id="declineButton" class=" btn  btn-neutral group  rounded-xl text-left text-gray-700 shadow-[0px_1px_6px_0px_rgba(0,0,0,0.02)] dark:text-gray-300 mr-2" as="button" onClick={props.onDecline}>
+							Decline
+						</button>
+
+						<button id="submitButton" class=" btn  btn-neutral group  rounded-xl text-left text-gray-700 shadow-[0px_1px_6px_0px_rgba(0,0,0,0.02)] dark:text-gray-300 mt-2" as="button" onClick={props.onClick}>
+							Submit
+						</button>
+					</div>
 				</div>
 			</details>
 		</div>
