@@ -49,7 +49,7 @@ function App() {
         Category Title
       </label>
       <select
-        id="category"
+        id="converse"
         className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
         onChange={oC}
       >
@@ -69,12 +69,7 @@ function App() {
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="button"
-          >
-            Get Prompt
-          </button>
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="button"
+            onClick={b}
           >
             Save Data
           </button>
