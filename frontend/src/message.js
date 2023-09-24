@@ -10,10 +10,11 @@ const waitUntil = (condition, checkInterval=100) => {
 			document.getElementById("qtype").innerText = response.queryType;
 			document.getElementById("qtype").hidden = false;
 			document.getElementById("qtype").classList.remove("waiting");
+			waitUntil(() => document.getElementById("qtype").classList.contains("waiting"));
 			return true;
 		})
-		
 	})
 }
 
-waitUntil(() => document.getElementById("qtype").classList.contains("waiting"))
+
+waitUntil(() => document.getElementById("qtype").classList.contains("waiting"));
