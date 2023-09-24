@@ -52,7 +52,7 @@ def cat_nlp():
     )
     queryType = completion.choices[0].message.content
     print(queryType)
-    res = db.cursor().execute(f"SELECT value FROM conversation").fetchall()
+    res = db.cursor().execute(f"SELECT cat FROM conversation").fetchall()
     for i in res:
         if(i[0] in queryType):
             return {"data" : res + request.form["sentence"], "label" : queryType}
