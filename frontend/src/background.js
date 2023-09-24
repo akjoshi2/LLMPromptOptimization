@@ -11,7 +11,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 		fetch('https://uiowa.onrender.com/categorize', {method: 'POST', body: formdata}).then(response => {
 			return response.json()
 		}).then(response => {
-			sendResponse({queryType: response.data})
+			sendResponse({queryType: response.data, label: response.label})
 		})
 	}
 	return true;

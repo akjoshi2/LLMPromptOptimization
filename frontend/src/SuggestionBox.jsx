@@ -2,10 +2,9 @@ import React from 'react';
 import './index.css';
 
 function SuggestionBox(props) {
-	const category = "Enter Category Here"
 	return (
 		<div class="static ...">
-			<details id="popup" class="closed:bg-white dark:closed:bg-slate-900 closed:ring-1 closed:ring-black/5 dark:closed:ring-white/10 closed:shadow-lg p-6 rounded-lg">
+			<details id="popup" class="closed:bg-white dark:closed:bg-slate-900 closed:ring-1 closed:ring-black/5 dark:closed:ring-white/10 closed:shadow-lg p-1 rounded-lg">
 				<summary class="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
 					PromptAI
 				</summary>
@@ -16,7 +15,7 @@ function SuggestionBox(props) {
 
 								<div class="inline-block flex-col gap-2 text-base md:gap-2 md:max-w-2xl lg:max-w-[38rem] xl:max-w-3xl }">
 
-									<div class="inline-block truncate font-semibold">{category}</div>
+									<div id="category" class="inline-block truncate font-semibold"></div>
 
 									<div class="inline-block align-top">
 										<button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400">
