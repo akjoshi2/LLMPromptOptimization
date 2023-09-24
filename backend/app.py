@@ -52,18 +52,8 @@ def cat_nlp():
     )
     queryType = completion.choices[0].message.content
     print(queryType)
-    if ("Math Problem" in queryType):
-        res = db.cursor().execute("SELECT value FROM conversation WHERE cat=?", [("Math Problem")]).fetchone()[0]
-        return {"data" : res + request.form["sentence"], "label" : queryType}
-    elif("Code Generation" in queryType):
-        pass
-    elif("Multiple Choice" in queryType):
-        pass
-    elif("Essay Generation" in queryType):
-        pass
-    else:
-        pass
-    return {"Error" : True}
+    res = db.cursor().execute("SELECT value FROM conversation WHERE cat=?", [(queryType)]).fetchone()[0]
+    return {"data" : res + request.form["sentence"], "label" : queryType}
     #return comple tion.choices[0].message
 @app.route("/")
 def hello_world():
