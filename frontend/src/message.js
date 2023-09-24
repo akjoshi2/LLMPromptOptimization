@@ -10,6 +10,7 @@ const waitUntil = (condition, checkInterval=100) => {
 			document.getElementById("qtype").innerText = response.queryType;
 			document.getElementById("category").innerText = response.label;
 			document.getElementById("qtype").hidden = false;
+			document.getElementById("buttons").classList.remove("hidden");
 			document.getElementById("qtype").classList.remove("waiting");
 			waitUntil(() => document.getElementById("qtype").classList.contains("waiting"));
 			return true;
