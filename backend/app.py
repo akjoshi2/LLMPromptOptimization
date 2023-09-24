@@ -35,7 +35,7 @@ def cat_nlp():
     print(resp)
     print(resp.status_code)
     return resp.json()["choices"]["message"]'''
-    openai.api_key = json.loads(apikey["SecretString"])["openai"]
+    openai.api_key = apikey
     db = db.connect("testdb")
     categories = [i[0] for i in db.cursor.execute("SELECT name from categories").fetchall()]
     print(categories)
