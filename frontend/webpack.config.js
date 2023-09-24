@@ -6,7 +6,9 @@ module.exports = {
     entry: {
         index: "./src/index.js",
         popup: "./src/popup.js",
-        content: "./src/content.js"
+        content: "./src/content.js",
+        background: "./src/background.js",
+        message: "./src/message.js"
     },
     mode: "production",
     module: {
