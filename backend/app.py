@@ -37,7 +37,7 @@ def cat_nlp():
     return resp.json()["choices"]["message"]'''
     openai.api_key = apikey
     db = sqlite3.connect("testdb")
-    categories = [i[0] for i in db.cursor.execute("SELECT name from categories").fetchall()]
+    categories = [i[0] for i in db.cursor().execute("SELECT name from categories").fetchall()]
     print(categories)
     completion = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
