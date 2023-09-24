@@ -5,7 +5,7 @@ function SuggestionBox(props) {
 	const category = "Enter Category Here"
 	return (
 		<div class="static ...">
-			<details class="closed:bg-white dark:closed:bg-slate-900 closed:ring-1 closed:ring-black/5 dark:closed:ring-white/10 closed:shadow-lg p-6 rounded-lg" closed>
+			<details id="popup" class="closed:bg-white dark:closed:bg-slate-900 closed:ring-1 closed:ring-black/5 dark:closed:ring-white/10 closed:shadow-lg p-6 rounded-lg">
 				<summary class="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
 					PromptAI
 				</summary>
