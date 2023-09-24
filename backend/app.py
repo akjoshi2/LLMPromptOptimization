@@ -58,8 +58,8 @@ def create_schema(db):
     c = db.cursor()
     cats = """CREATE TABLE IF NOT EXISTS categories (id INTEGER PRIMARY KEY, name TEXT NOT NULL)"""
     c.execute(cats)
-    c.commit()
-    c.close()
+    db.commit()
+    db.close()
 
     
 
