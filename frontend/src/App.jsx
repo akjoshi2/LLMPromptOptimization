@@ -17,10 +17,11 @@ function App() {
 
   });
 
-  var oC = function(){
-    fetch('https://uiowa.onrender.com/get?type=' + encodeURIComponent(input.value)).then(response => {
+  var oC = function(res){
+    fetch('https://uiowa.onrender.com/get?type=' + encodeURIComponent(res.target.value)).then(response => {
 			return response.json()
 		}).then(response => {
+      console.log(response.value)
       setText(response.value[0][0]);
 		})
 
