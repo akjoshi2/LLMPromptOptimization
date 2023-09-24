@@ -46,7 +46,7 @@ function App() {
       <datalist id="s">
         {
          c.map(name => {
-            <option value={name}/>
+            return (<option value={name}/>)
 
           })
         }
@@ -57,7 +57,7 @@ function App() {
       <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                 Prompt
       </label>
-      <input id="val" value={text}/>
+      <input id="val" placeholder={text}/>
 
  </div>
     <div class="flex items-center justify-between">
