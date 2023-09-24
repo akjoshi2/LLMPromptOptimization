@@ -18,21 +18,27 @@ function App() {
   });
 
   var oC = function(res){
+    if(res.target.value){
     fetch('https://uiowa.onrender.com/get?type=' + encodeURIComponent(res.target.value)).then(response => {
 			return response.json()
 		}).then(response => {
       console.log(response.value)
       setText(response.value[0]);
 		})
+  }
 
   }
 
   var b = function(){
 
     let data = new FormData();
-    data.append("type" , c)
+    data.append("type" , document.getElementById("converse").value)
     data.append("value", text )
-    fetch('https://uiowa.onrender.com/set', {"method" : "POST", body: data })
+    fetch('https://uiowa.onrender.com/set', {"method" : "POST", body: data }).then(()=> {
+        document.getElementById("converse").value = "";
+        document.getElementById("val").value = ""
+    })
+
   }
 
  
@@ -58,7 +64,7 @@ function App() {
       <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                 Prompt
       </label>
-      <textarea id="val" placeholder={text}/>
+      <textarea id="val" placeholder={text} onInput={(res)=>{setText(res.target.value);}}/>
 
  </div>
     <div class="flex items-center justify-between">
