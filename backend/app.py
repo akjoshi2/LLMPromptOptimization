@@ -8,14 +8,15 @@ import openai
 
 app = Flask(__name__)
 CORS(app)
-session = boto3.session.Session()
-client = session.client(
-    service_name='secretsmanager',
-    region_name="us-east-2"
-)
-apikey = client.get_secret_value(
-        SecretId="arn:aws:secretsmanager:us-east-2:786987962169:secret:openaiapikey-D5xsWn"
-    )
+# session = boto3.session.Session()
+# client = session.client(
+#     service_name='secretsmanager',
+#     region_name="us-east-2"
+# )
+# apikey = client.get_secret_value(
+#         SecretId="arn:aws:secretsmanager:us-east-2:786987962169:secret:openaiapikey-D5xsWn"
+#     )
+apikey = open("/etc/secrets/openaikey").read()
 
 @app.route("/categorize", methods=["POST"])
 def cat_nlp():
@@ -59,6 +60,7 @@ def create_schema(db):
     c.execute(cats)
     c.commit()
     c.close()
+
     
 
 if __name__ == "__main__":
