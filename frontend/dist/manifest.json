@@ -3,14 +3,18 @@
     "manifest_version": 3,
     "name": "PromptGPT",
     "description": "Prompt Engineering at your fingertips",
+    "permissions" : ["scripting"],
     "action": {
         "default_popup": "js/index.html",
         "default_title": "React Chrome Extension"
     },
     "content_scripts": [
         {
-            "matches": ["<all_urls>"],
-            "js": ["js/content.js"]
+            "world" : "MAIN",
+            "matches": ["https://chat.openai.com/*"],
+            "js": ["js/content.js"],
+            "all_frames": true,
+            "run_at": "document_end"
         }
     ]
 }
