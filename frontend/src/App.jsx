@@ -29,14 +29,25 @@ function App() {
   }
 
   var b = function(){
-
+    if(document.getElementById("converse").value === "add"){
+        let data = new FormData();
+        data.append("type" , text)
+        data.append("value", "default" )
+        fetch('https://uiowa.onrender.com/set', {"method" : "POST", body: data }).then(()=> {
+          document.getElementById("converse").value = "";
+          document.getElementById("val").value = ""
+      })
+      data = new FormData();
+      data.append("type" , text)
+      fetch('https://uiowa.onrender.com/add', {"method" : "POST", body: data }).then(()=> {
+        setC([...c, text])
+    })
+    }else{
     let data = new FormData();
     data.append("type" , document.getElementById("converse").value)
     data.append("value", text )
-    fetch('https://uiowa.onrender.com/set', {"method" : "POST", body: data }).then(()=> {
-        document.getElementById("converse").value = "";
-        document.getElementById("val").value = ""
-    })
+  
+  }
 
   }
 
@@ -57,6 +68,7 @@ function App() {
         {c.map(name => {
           return (<option value={name}>{name}</option>)
         })}
+        <option value="add">Add a Category</option>
       </select>
  </div>
  <div className="mb-4">
