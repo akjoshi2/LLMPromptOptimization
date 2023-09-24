@@ -53,20 +53,34 @@ def cat_nlp():
     queryType = completion.choices[0].message.content
     print(queryType)
     if ("Math Problem" in queryType):
-        return {"data" : "Take a deep breath and solve the problem step by step.\n" + request.form["sentence"], "label" : queryType}
+        res = db.cursor().execute("SELECT value FROM conversation WHERE cat=?", [("Math Problem")]).fetchone()[0]
+        return {"data" : res[0] + request.form["sentence"], "label" : queryType}
     elif("Code Generation" in queryType):
         pass
+    elif("Multiple Choice" in queryType):
+        pass
+    elif("Essay Generation" in queryType):
+        pass
+    else:
+        pass
+    return {"Error" : True}
     #return comple tion.choices[0].message
 @app.route("/")
 def hello_world():
     db = sqlite3.connect("testdb")
     create_schema(db)
     return "<p>Hello, World!</p>"
+@app.route("/getcat", methods=["GET"])
+def gc():
+    db = sqlite3.connect("testdb")
+    c = db.cursor()
+    return {"res" : [i[0] for i in db.cursor().execute("SELECT name from categories").fetchall()]}
+    
 @app.route("/set", methods=["POST"])
 def s():
     db = sqlite3.connect("testdb")
     c = db.cursor()
-    c.execute("""UPDATE conversations set value = """ + requests.form["value"])
+    c.execute("""REPLACE INTO conversation(name,value,cat) VALUES (?,?,?)""", [('Aiden', requests.form["value"], requests.form["type"])])
     db.commit()
     return {}
 
@@ -74,7 +88,7 @@ def s():
 def g():
     db = sqlite3.connect("testdb")
     c = db.cursor()
-    return {"value" : c.execute("""SELECT value FROM conversations""").fetchone()}
+    return {"value" : c.execute("""SELECT value,cat FROM conversations WHERE cat=?""", [(requests.args["type"])]).fetchone()}
     
 def create_schema(db):
     c = db.cursor()
