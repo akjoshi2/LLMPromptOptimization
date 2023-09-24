@@ -54,7 +54,7 @@ def cat_nlp():
     print(queryType)
     if ("Math Problem" in queryType):
         res = db.cursor().execute("SELECT value FROM conversation WHERE cat=?", [("Math Problem")]).fetchone()[0]
-        return {"data" : res[0] + request.form["sentence"], "label" : queryType}
+        return {"data" : res + request.form["sentence"], "label" : queryType}
     elif("Code Generation" in queryType):
         pass
     elif("Multiple Choice" in queryType):
