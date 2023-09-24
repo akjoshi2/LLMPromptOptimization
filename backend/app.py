@@ -52,7 +52,7 @@ def cat_nlp():
     )
     queryType = completion.choices[0].message.content
     print(queryType)
-    res = db.cursor().execute("SELECT value FROM conversation WHERE cat LIKE %?%", [(queryType)]).fetchone()[0]
+    res = db.cursor().execute("SELECT value FROM conversation WHERE cat LIKE '%?%'", [(queryType)]).fetchone()[0]
     return {"data" : res + request.form["sentence"], "label" : queryType}
     #return comple tion.choices[0].message
 @app.route("/")
