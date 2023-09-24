@@ -55,7 +55,7 @@ def cat_nlp():
     res = db.cursor().execute(f"SELECT cat FROM conversation").fetchall()
     for i in res:
         if(i[0] in queryType):
-            return {"data" : res + request.form["sentence"], "label" : queryType}
+            return {"data" : i[0] + request.form["sentence"], "label" : queryType}
     return {"error" : True}
     #return comple tion.choices[0].message
 @app.route("/")
@@ -82,7 +82,14 @@ def g():
     db = sqlite3.connect("testdb")
     c = db.cursor()
     return {"value" : c.execute("""SELECT value,cat FROM conversation WHERE cat=?""", [(request.args["type"])]).fetchone()}
-    
+
+@app.route("/add",methods=["POST"] )
+def a():
+    db = sqlite3.connect("testdb")
+    c = db.cursor()
+    c.execute("""INSERT INTO categories(name,user) VALUES (?,?)""", (request.form["type"], 'user'))
+    db.commit()
+    return {}
 def create_schema(db):
     c = db.cursor()
     cats = """CREATE TABLE IF NOT EXISTS categories (id INTEGER PRIMARY KEY, name TEXT NOT NULL)"""
