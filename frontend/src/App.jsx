@@ -22,7 +22,7 @@ function App() {
 			return response.json()
 		}).then(response => {
       console.log(response.value)
-      setText(response.value[0][0]);
+      setText(response.value[0]);
 		})
 
   }
@@ -58,7 +58,7 @@ function App() {
       <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                 Prompt
       </label>
-      <input id="val" placeholder={text}/>
+      <textarea id="val" placeholder={text}/>
 
  </div>
     <div class="flex items-center justify-between">

@@ -70,7 +70,7 @@ def gc():
 def s():
     db = sqlite3.connect("testdb")
     c = db.cursor()
-    c.execute("""REPLACE INTO conversation(name,value,cat) VALUES (?,?,?)""", [('Aiden', request.form["value"], request.form["type"])])
+    c.execute("""REPLACE INTO conversation(name,value,cat) VALUES (?,?,?)""", ('Aiden', request.form["value"], request.form["type"]))
     db.commit()
     return {}
 
