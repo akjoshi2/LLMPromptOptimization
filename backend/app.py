@@ -36,11 +36,13 @@ def cat_nlp():
     print(resp.status_code)
     return resp.json()["choices"]["message"]'''
     openai.api_key = json.loads(apikey["SecretString"])["openai"]
-
+    db = db.connect("testdb")
+    categories = [i[0] for i in db.cursor.execute("SELECT name from categories").fetchall()]
+    print(categories)
     completion = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[
-        {"role": "system", "content": "Your role is to classify the submitted text into one of these categories. Select the category that matches the submitted text. Categories: "},
+        {"role": "system", "content": "Your role is to classify the submitted text into one of these categories. Select the category that matches the submitted text. Categories: " + " ".join(categories)},
         {"role": "user", "content": "Text: " + request.form["sentence"]}
     ]
     )
