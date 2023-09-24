@@ -17,9 +17,12 @@
             "run_at": "document_end"
         }
     ],
-    "icons": [
+    "icons":
         {
+        "16": "logoimages/16x16logo.png",
+        "19": "logoimages/19x19logo.png",
+        "38": "logoimages/38x38logo.png",
+        "48": "logoimages/48x48logo.png",
         "128": "logoimages/128x128logo.png"
         }
-    ]
 }
