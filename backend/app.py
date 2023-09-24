@@ -5,7 +5,7 @@ import boto3
 import sqlite3
 import json
 import openai
-
+import os 
 app = Flask(__name__)
 CORS(app)
 # session = boto3.session.Session()
@@ -16,7 +16,10 @@ CORS(app)
 # apikey = client.get_secret_value(
 #         SecretId="arn:aws:secretsmanager:us-east-2:786987962169:secret:openaiapikey-D5xsWn"
 #     )
-apikey = open("/etc/secrets/openaikey").read()
+if(os.path.exists("/etc/secrets/openaikey")):
+    apikey = open("/etc/secrets/openaikey").read()
+else:
+    apikey = open("apikey").read()
 
 @app.route("/categorize", methods=["POST"])
 def cat_nlp():
