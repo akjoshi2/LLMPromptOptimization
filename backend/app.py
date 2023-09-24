@@ -52,8 +52,11 @@ def cat_nlp():
     )
     queryType = completion.choices[0].message.content
     print(queryType)
-    res = db.cursor().execute(f"SELECT value FROM conversation WHERE instr({queryType}, cat) > 0").fetchone()[0]
-    return {"data" : res + request.form["sentence"], "label" : queryType}
+    res = db.cursor().execute(f"SELECT value FROM conversation").fetchall()
+    for i in res:
+        if(i[0] in queryType):
+            return {"data" : res + request.form["sentence"], "label" : queryType}
+    return {"error" : True}
     #return comple tion.choices[0].message
 @app.route("/")
 def hello_world():
